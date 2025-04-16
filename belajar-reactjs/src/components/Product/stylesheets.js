@@ -26,6 +26,9 @@ const productStyles = {
       background: "#ddd",
       margin: "10px 0",
     },
+    teks: {
+      textAlign: "center",
+    },
   };
   
   export default productStyles;  
