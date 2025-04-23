@@ -6,18 +6,16 @@ import "./styles/style.css"; // Import global CSS
 import Ucapan from "./components/Product/Welcome";
 import Product_Food from "./components/Product/Product_Food";
 import Nilai from "./components/Button/Nilai";
+import MyButton from "./components/Button/Button";
+import MyButton1 from "./components/Button/Button1";
+import MyButton_DOM from "./components/Button/Button_DOM";
+import MyContact from "./components/Button/Contact";
 
 
 
 function App() {
   return (
-    // // <div className="container">
-    // //   <h1>Welcome to School Website</h1>
-    // //   <Product name="Iphone X" price="10000000" discount="50" />
-    // //   <Product name="Oppo Find X" price="14000000" discount="30" />
-    // //   <Product name="Redmi Note X" price="12000000" discount="42" />
-    // //   <Button text="Click Me" onClick={() => alert("Button Clicked")} />
-    // // </div>
+
 <div>
     <Ucapan jenenge='STIKOM PGRI' />
     <hr></hr>
@@ -36,6 +34,14 @@ function App() {
     <hr></hr>
 
     <Nilai/>
+    <hr></hr>
+    <MyButton />
+    <hr></hr>
+    <MyButton1 />
+    <hr></hr>
+    <MyButton_DOM />
+    <hr></hr>
+    <MyContact />
 </div>
     
 
