@@ -17,10 +17,12 @@ const mahasiswaRouter = require('./routes/mahasiswa');
 var app = express();
 const flash = require('connect-flash'); // import flash
 const session = require('express-session'); // import session
+const methodOverride = require('method-override'); // import method-override
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(methodOverride('_method')); // override with POST having ?_method=DELETE
 app.use(
     session({
         secret: 'keyboard cat',
