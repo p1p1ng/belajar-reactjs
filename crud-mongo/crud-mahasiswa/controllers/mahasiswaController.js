@@ -32,12 +32,14 @@ module.exports = {
     EditMahasiswa: async (req, res) => {
         try {
             const { id, nama, nim, jurusan, alamat } = req.body;
-            await Mahasiswa.findOne({_id: id});
+            const mahasiswa = await Mahasiswa.findOne({_id: id});
+            
             mahasiswa.nama = nama;
             mahasiswa.nim = nim;
             mahasiswa.jurusan = jurusan;
             mahasiswa.alamat = alamat;
             await mahasiswa.save(); // simpan perubahan ke database
+            
             req.flash("alertMessage", "Berhasil ubah data mahasiswa");
             req.flash("alertStatus", "success");
             res.redirect("/mahasiswa"); // kembali ke halaman mahasiswa jika berhasil

@@ -34,7 +34,9 @@
                             <td><%= mahasiswa[i].jurusan %></td>
                             <td><%= mahasiswa[i].alamat %></td>
                             <td class="text-center">
+                                
                                 <form action="/mahasiswa/<%= mahasiswa[i]._id || mahasiswa[i].id %>?_method=DELETE" method="POST">
+                                    
                                     <a href="javascript:void(0)"
                                         class="btn btn-outline-info btn-sm button-update"
                                         data-id="<%= mahasiswa[i]._id || mahasiswa[i].id %>"
@@ -44,6 +46,8 @@
                                         data-alamat="<%= mahasiswa[i].alamat %>">
                                         Edit
                                     </a>
+
+
                                     <button type="submit"
                                         class="btn btn-outline-danger btn-sm"
                                         onclick="return confirm('Apakah anda yakin ingin menghapus data mahasiswa?')">
