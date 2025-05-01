@@ -12,9 +12,11 @@ module.exports = {
                 alert,
                 title: "CRUD",       
             });
-            } catch (error) {
-                res.redirect("/mahasiswa");
-            }
+        } catch (error) {
+            req.flash("alertMessage", "Gagal memuat data mahasiswa");
+            req.flash("alertStatus", "danger");
+            res.redirect("/mahasiswa");
+        }
     },
     addMahasiswa: async (req, res) => {
         try {
@@ -52,16 +54,24 @@ module.exports = {
     DeleteMahasiswa: async (req, res) => {
         try {
             const { id } = req.params;
-            const mahasiswa = await Mahasiswa.findOne({_id: id});
-            await mahasiswa.remove(); // hapus data mahasiswa jika data ada
-
+            console.log("Menghapus mahasiswa dengan ID:", id); // Debug log
+    
+            const mahasiswa = await Mahasiswa.findOne({ _id: id });
+            if (!mahasiswa) {
+                console.log("Data tidak ditemukan");
+                return res.redirect("/mahasiswa");
+            }
+    
+            await mahasiswa.deleteOne(); // Gantilah remove() jika error
+    
             req.flash("alertMessage", "Berhasil hapus data mahasiswa");
             req.flash("alertStatus", "warning");
             res.redirect("/mahasiswa");
         } catch (error) {
+            console.error("Error saat delete:", error);
             req.flash("alertMessage", "Gagal hapus data mahasiswa");
             req.flash("alertStatus", "danger");
             res.redirect("/mahasiswa");
         }
-    }
+    }    
 };
